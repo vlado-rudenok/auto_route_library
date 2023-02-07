@@ -13,7 +13,7 @@ abstract class AutoRouteGuard {
   }
 }
    */
-  void onNavigation(
+  Future<void> onNavigation(
     NavigationResolver resolver,
     StackRouter router,
   );
@@ -102,7 +102,7 @@ abstract class AutoRedirectGuard extends AutoRedirectGuardBase {
   @override
   Future<void> _reevaluate(StackRouter stackRouter) async {
     if (_redirectResolver != null) {
-      onNavigation(_redirectResolver!, stackRouter);
+      await onNavigation(_redirectResolver!, stackRouter);
     } else {
       super._reevaluate(stackRouter);
     }

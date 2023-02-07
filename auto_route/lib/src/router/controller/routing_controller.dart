@@ -1152,7 +1152,7 @@ abstract class StackRouter extends RoutingController {
         _attachRedirectGuard(guard);
       }
       activeGuardObserver.value = guard;
-      guard.onNavigation(
+      await guard.onNavigation(
           NavigationResolver(
             this,
             completer,
